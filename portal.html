@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidzy Server Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .server-portal {
+            display: flex;
+            overflow-x: hidden;
+            gap: 20px;
+            padding: 20px 0;
+            transform: translateX(100%);
+            animation: slotMachineEffect 2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            will-change: transform;
+        }
+
+        @keyframes slotMachineEffect {
+            0% {
+                transform: translateX(100%);
+            }
+            50% {
+                transform: translateX(10%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .server-card {
+            min-width: 300px;
+            max-width: 350px;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .server-card:hover {
+            transform: scale(1.05);
+        }
+
+        .server-card h3 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #007bff;
+        }
+
+        .server-card p {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .server-portal {
+                flex-direction: column;
+            }
+
+            .server-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="servers" class="servers">
+        <div class="container">
+            <h2 class="fade-in">Vidzy Server Portal</h2>
+            <div class="server-portal">
+                <div class="server-card">
+                    <h3><a href="https://mykmyk.lt/">mykmyk.lt</a></h3>
+                    <p><strong>Provider:</strong> group.lt</p>
+                    <p><strong>Location:</strong> Lithuania</p>
+                    <p>Community-driven instance, recommended by Vidzy developers</p>
+                </div>
+                <div class="server-card">
+                    <h3><a href="https://vidzy.pythonanywhere.com/">Vidzy Official</a></h3>
+                    <p><strong>Provider:</strong> PythonAnywhere</p>
+                    <p><strong>Location:</strong> United Kingdom</p>
+                    <p>Instance managed by Vidzy developers. <span style="font-size:small;">(new uploads are currently disabled due to storage space issues, also due to restrictions you can't view videos from another Vidzy instance)</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('h2').style.opacity = '1';
+            document.querySelector('h2').style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
